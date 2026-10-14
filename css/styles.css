@@ -1,0 +1,424 @@
+/* ==========================================================
+   Papelería Centauros - hoja de estilos de las dos páginas
+   Estilo futurista: fondo azul noche con colores neón
+   ========================================================== */
+
+/* ---------- 1. VARIABLES (se guardan en :root y se usan con var()) ---------- */
+:root {
+  /* Colores principales */
+  --fondo: #0b1020;            /* azul noche */
+  --cian: #22e5ff;             /* neón principal */
+  --violeta: #8b5cf6;          /* neón secundario */
+  --magenta: #ff3dcb;          /* acento para precios y detalles */
+  --texto: #e8ecff;
+  --texto-suave: #a9b3d9;
+
+  /* Colores con canal alfa: el último número es la transparencia (0 a 1) */
+  --panel: rgba(19, 26, 51, 0.85);
+  --cian-suave: rgba(34, 229, 255, 0.15);
+  --cian-borde: rgba(34, 229, 255, 0.35);
+  --violeta-suave: rgba(139, 92, 246, 0.15);
+  --violeta-brillo: rgba(139, 92, 246, 0.35);
+  --magenta-brillo: rgba(255, 61, 203, 0.4);
+  --blanco-suave: rgba(255, 255, 255, 0.04);
+
+  /* Tipografías (la segunda y tercera son de respaldo) */
+  --fuente: "Segoe UI", Tahoma, Arial, sans-serif;
+  --fuente-logo: "Courier New", Consolas, monospace;
+
+  /* Espacios y formas */
+  --espacio-s: 0.5rem;
+  --espacio-m: 1rem;
+  --espacio-l: 2rem;
+  --radio: 0.75rem;
+  --ancho-max: 60rem;
+
+  color-scheme: dark; /* hace que el calendario y el select del formulario salgan oscuros */
+}
+
+/* ---------- 2. BASE (lo que heredan casi todos los elementos) ---------- */
+body {
+  margin: 0;
+  font-family: var(--fuente);   /* estas propiedades se heredan a los hijos */
+  font-size: 1rem;              /* 1rem = tamaño normal de letra del navegador */
+  line-height: 1.6;             /* altura de línea: separa los renglones */
+  color: var(--texto);
+  overflow-wrap: break-word;    /* rompe palabras muy largas para que no se salgan */
+  /* Fondo múltiple: dos degradados circulares y, al final, un color sólido */
+  background:
+    radial-gradient(circle at 15% 0%, var(--violeta-brillo), transparent 45%),
+    radial-gradient(circle at 90% 25%, var(--cian-suave), transparent 40%),
+    var(--fondo);
+}
+
+h1 {
+  margin: var(--espacio-m) 0;
+  font-size: 2rem;
+  color: var(--cian);
+  text-shadow: 0 0 0.8rem var(--cian-borde); /* brillo neón alrededor del texto */
+}
+
+h2 {
+  margin-top: 0;
+  padding-bottom: var(--espacio-s);
+  border-bottom: 2px solid var(--magenta);   /* borde solo del lado de abajo */
+  letter-spacing: 0.05em;                    /* espacio entre letras */
+}
+
+h3 {
+  color: var(--cian);
+}
+
+a {
+  color: var(--cian);
+  text-decoration: underline;                /* línea bajo el enlace */
+}
+
+s {
+  color: var(--texto-suave);                 /* el precio anterior se ve más apagado */
+}
+
+/* Selector de atributo: solo los enlaces que abren en otra pestaña */
+a[target="_blank"]::after {
+  content: " ↗";                             /* ::after agrega contenido después del enlace */
+}
+
+/* ---------- 3. ENCABEZADO Y MENÚ ---------- */
+.encabezado {
+  padding: var(--espacio-m);
+  text-align: center;
+  background: linear-gradient(90deg, var(--violeta-suave), var(--cian-suave));
+  border-bottom: 2px solid var(--cian);
+}
+
+.encabezado__logo {
+  margin: 0 0 var(--espacio-s);
+  font-family: var(--fuente-logo);
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;                 /* todo en mayúsculas */
+  letter-spacing: 0.15em;
+  color: var(--cian);
+}
+
+/* Puntito que brilla antes del logo (::before agrega contenido antes) */
+.encabezado__logo::before {
+  content: "";
+  display: inline-block;
+  width: 0.7rem;
+  height: 0.7rem;
+  margin-right: 0.6rem;
+  border-radius: 50%;                        /* 50% convierte el cuadrado en círculo */
+  background-color: var(--cian);
+  box-shadow: 0 0 0.6rem var(--cian);
+  animation: pulso 1.5s ease-in-out infinite alternate;
+}
+
+/* Animación: el puntito pasa de visible a casi transparente y vuelve */
+@keyframes pulso {
+  from { opacity: 1; }
+  to   { opacity: 0.25; }
+}
+
+.menu__lista {
+  margin: 0;
+  padding: 0;
+  list-style: none;                          /* quita los puntos de la lista */
+}
+
+/* Combinador hijo (>): solo los li que están directamente dentro de la lista */
+.menu__lista > li {
+  display: inline-block;
+  margin: 0.25rem;
+}
+
+/* Combinador descendiente (espacio): los enlaces que están dentro del menú */
+.menu__lista a {
+  display: inline-block;
+  padding: 0.4rem 0.9rem;
+  color: var(--texto);
+  text-decoration: none;
+  border: 1px solid var(--cian-borde);
+  border-radius: 2rem;
+}
+
+.menu__lista a:hover {
+  color: var(--cian);
+  background-color: var(--cian-suave);
+  border-color: var(--cian);
+}
+
+/* ---------- 4. CONTENIDO PRINCIPAL ---------- */
+main {
+  max-width: var(--ancho-max);               /* el contenido nunca pasa de este ancho */
+  margin: 0 auto;                            /* arriba/abajo 0 y a los lados "auto": centra la caja */
+  padding: var(--espacio-m);
+}
+
+/* Cada sección es un panel con borde de neón */
+main section {
+  margin-bottom: var(--espacio-l);
+  padding: var(--espacio-l);
+  background-color: var(--panel);
+  border: 1px solid var(--cian-borde);
+  border-radius: var(--radio);
+}
+
+/* :target = la sección a la que llegaste con un ancla (#productos, #formulario...) */
+main section:target {
+  border-color: var(--magenta);
+  box-shadow: 0 0 1.5rem var(--magenta-brillo);
+}
+
+/* ---------- 5. PRESENTACIÓN ---------- */
+.presentacion__imagen {
+  display: block;
+  max-width: 100%;                           /* la imagen nunca es más ancha que su caja */
+  height: auto;
+  margin: var(--espacio-m) auto;
+  border: 2px solid var(--cian);
+  border-radius: var(--radio);
+  box-shadow: 0 0 1.5rem var(--cian-borde);
+}
+
+/* ---------- 6. TARJETAS DE PRODUCTOS ---------- */
+.tarjeta {
+  display: inline-block;                     /* permite poner dos tarjetas lado a lado sin Flexbox */
+  box-sizing: border-box;                    /* el ancho incluye padding y borde */
+  width: 47%;
+  margin: 1%;
+  padding: var(--espacio-m);
+  vertical-align: top;
+  background-color: var(--blanco-suave);
+  border: 1px solid var(--cian-borde);
+  border-left: 4px solid var(--magenta);     /* el lado izquierdo es más grueso y de otro color */
+  border-radius: var(--radio);
+  overflow: hidden;                          /* lo que sobre de la tarjeta se oculta */
+}
+
+.tarjeta:hover {
+  border-color: var(--cian);
+  box-shadow: 0 0 1.2rem var(--cian-borde);
+}
+
+.tarjeta__imagen {
+  display: block;
+  width: 100%;
+  height: 11rem;
+  object-fit: cover;                         /* recorta la foto para llenar el espacio sin deformarla */
+  border-radius: 0.5rem;
+}
+
+.tarjeta__titulo {
+  margin: 0.8rem 0 0.3rem;
+}
+
+.tarjeta p {
+  margin: 0.4rem 0;
+  color: var(--texto-suave);
+}
+
+/* Esta regla (2 clases) le gana a ".tarjeta p" (1 clase + 1 etiqueta) */
+.tarjeta .tarjeta__precio {
+  font-size: 1.1rem;
+  color: var(--magenta);
+}
+
+.productos__nota {
+  margin-top: var(--espacio-m);
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- 7. LISTAS (información útil y pasos) ---------- */
+.informacion__lista {
+  padding-left: 1.5rem;
+  list-style: square;                        /* viñeta cuadrada */
+}
+
+.informacion__lista li::marker {             /* ::marker es la viñeta o el número */
+  color: var(--magenta);
+}
+
+.pasos__lista {
+  padding-left: 1.5rem;
+  list-style: decimal;                       /* 1, 2, 3... */
+}
+
+.pasos__lista li::marker {
+  color: var(--cian);
+  font-weight: bold;
+}
+
+/* ---------- 8. OPINIONES ---------- */
+.opinion {
+  max-width: 36rem;
+  margin: var(--espacio-m) auto;
+  padding: var(--espacio-m) 1.5rem;
+  background-color: var(--violeta-suave);
+  border-left: 4px solid var(--violeta);
+  border-radius: 0 var(--radio) var(--radio) 0;
+}
+
+.opinion p {
+  margin: 0 0 var(--espacio-s);
+  font-style: italic;
+}
+
+.opinion cite {
+  display: block;
+  font-style: normal;
+  color: var(--cian);
+}
+
+/* ---------- 9. MAPA ---------- */
+.llegar__mapa {
+  display: block;
+  width: 100%;
+  height: 18rem;
+  margin: var(--espacio-m) 0;
+  border: 2px solid var(--cian);
+  border-radius: var(--radio);
+}
+
+/* ---------- 10. TABLA DE PRECIOS ---------- */
+.precios {
+  overflow-x: auto;                          /* si la tabla no cabe, aparece scroll dentro del panel */
+}
+
+.tabla {
+  width: 100%;
+  border-collapse: collapse;                 /* une los bordes de las celdas en uno solo */
+}
+
+.tabla caption {
+  padding-bottom: var(--espacio-s);
+  text-align: left;
+  color: var(--texto-suave);
+}
+
+.tabla th,
+.tabla td {
+  padding: 0.6rem;
+  text-align: left;
+  border-bottom: 1px solid var(--cian-borde);
+}
+
+.tabla thead th {
+  color: var(--cian);
+  background-color: var(--cian-suave);
+}
+
+/* Fila "Combos escolares" (la celda con colspan) */
+.tabla tbody th {
+  color: var(--magenta);
+  background-color: var(--violeta-suave);
+}
+
+/* Pseudoclase estructural: las filas pares del cuerpo de la tabla */
+.tabla tbody tr:nth-child(even) {
+  background-color: var(--blanco-suave);
+}
+
+/* Misma especificidad que la regla de arriba: gana esta porque está después */
+.tabla tbody tr:hover {
+  background-color: var(--cian-suave);
+}
+
+/* ---------- 11. FORMULARIO ---------- */
+.formulario p {
+  margin: var(--espacio-m) 0;
+  padding-left: var(--espacio-s);
+  border-left: 3px solid transparent;        /* borde invisible para que nada se mueva al enfocar */
+}
+
+/* :focus-within = el párrafo se resalta cuando el campo de adentro está activo */
+.formulario p:focus-within {
+  border-left-color: var(--cian);
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+  box-sizing: border-box;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.6rem;
+  font-family: var(--fuente);
+  font-size: 1rem;
+  color: var(--texto);
+  background-color: var(--fondo);
+  border: 1px solid var(--cian-borde);
+  border-radius: 0.5rem;
+}
+
+.formulario button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--fondo);
+  background: linear-gradient(90deg, var(--cian), var(--violeta));
+  border: none;
+  border-radius: 2rem;
+  cursor: pointer;
+}
+
+.formulario button:hover {
+  background: linear-gradient(90deg, var(--magenta), var(--violeta));
+}
+
+/* :focus-visible = contorno visible cuando navegas con la tecla TAB */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid var(--magenta);
+  outline-offset: 2px;
+}
+
+/* ---------- 12. PIE DE PÁGINA ---------- */
+.pie {
+  padding: var(--espacio-l) var(--espacio-m);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+  border-top: 2px solid var(--violeta);
+}
+
+.pie p {
+  margin: 0.25rem 0;
+}
+
+/* ---------- 13. CELULARES (pantallas de 600px o menos) ---------- */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .menu__lista > li {
+    display: block;                          /* el menú pasa a una columna */
+  }
+
+  .menu__lista a {
+    display: block;
+  }
+
+  main {
+    padding: var(--espacio-s);
+  }
+
+  main section {
+    padding: var(--espacio-m);
+  }
+
+  .tarjeta {
+    display: block;                          /* una tarjeta por renglón */
+    width: auto;
+    margin: var(--espacio-m) 0;
+  }
+
+  .llegar__mapa {
+    height: 14rem;
+  }
+}

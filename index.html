@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Papelería Centauros | Útiles escolares en Bucaramanga</title>
+  <meta name="description" content="Papelería Centauros: cartulina pliego, cuadernos, lapiceros y lápices al mejor precio. Mira nuestros productos, horarios y cómo llegar.">
+  <!-- Hoja de estilos (se llenará en la Etapa 3) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- Encabezado y Menu -->
+  <header class="encabezado">
+    <p class="encabezado__logo">Papelería Centauros</p>
+    <nav class="menu">
+      <ul class="menu__lista">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="index.html#como-llegar">Cómo llegar</a></li>
+        <li><a href="segunda-pagina.html">Precios y pedidos</a></li>
+        <li><a href="segunda-pagina.html#formulario">Hacer un pedido</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!--contenido principal-->
+  <main>
+
+    <!-- presentacion papeleria -->
+    <section class="presentacion">
+      <h1>Todo para tus tareas y proyectos</h1>
+      <p>
+        En <strong>Papelería Centauros</strong> encuentras los útiles que necesitas
+        para el colegio, la universidad y la oficina, <em>con buen precio y atención rápida</em>.
+        Mira nuestros productos o <a href="segunda-pagina.html#formulario">haz tu pedido aquí</a>
+        y pasa a recogerlo.
+      </p>
+      <!-- Imagen del local o de útiles: guárdala como images/local.jpg -->
+      <img class="presentacion__imagen" src="images/local.jpg" alt="Estantes de la papelería con cuadernos, lápices y cartulinas">
+    </section>
+
+    <!-- PRODUCTOS (tarjetas) -->
+    <section id="productos" class="productos">
+      <h2>Nuestros productos</h2>
+
+      <article class="tarjeta">
+        <img class="tarjeta__imagen" src="images/cartulina.jpg" alt="Pliegos de cartulina de varios colores">
+        <h3 class="tarjeta__titulo">Cartulina pliego</h3>
+        <p class="tarjeta__texto">Ideal para carteleras y exposiciones. Hay blanca y de colores.</p>
+        <p class="tarjeta__precio"><strong>$1.800</strong> por pliego</p>
+      </article>
+
+      <article class="tarjeta">
+        <img class="tarjeta__imagen" src="images/cuadernos.jpg" alt="Cuadernos de rayas apilados">
+        <h3 class="tarjeta__titulo">Cuadernos</h3>
+        <p class="tarjeta__texto">Cuadernos de 100 hojas, cosidos y con tapa resistente.</p>
+        <p class="tarjeta__precio"><s>$6.500</s> <strong>$5.500</strong> oferta de temporada</p>
+      </article>
+
+      <article class="tarjeta">
+        <img class="tarjeta__imagen" src="images/lapiceros.jpg" alt="Lapiceros de tinta negra, azul y roja">
+        <h3 class="tarjeta__titulo">Lapiceros</h3>
+        <p class="tarjeta__texto">Tinta negra, azul y roja. Escriben suave y no manchan.</p>
+        <p class="tarjeta__precio"><strong>$1.200</strong> cada uno</p>
+      </article>
+
+      <article class="tarjeta">
+        <img class="tarjeta__imagen" src="images/lapices.jpg" alt="Lápices de grafito con borrador">
+        <h3 class="tarjeta__titulo">Lápices</h3>
+        <p class="tarjeta__texto">Lápices de grafito número 2, perfectos para dibujar y escribir.</p>
+        <p class="tarjeta__precio"><strong>$900</strong> cada uno</p>
+      </article>
+
+      <p class="productos__nota">Todos los precios incluyen <abbr title="Impuesto al Valor Agregado">IVA</abbr>.</p>
+    </section>
+
+    <!-- info -->
+    <section id="informacion" class="informacion">
+      <h2>Información útil</h2>
+      <ul class="informacion__lista">
+        <li>Lunes a viernes: 7:30 a. m. a 7:00 p. m.</li>
+        <li>Sábados: 8:00 a. m. a 5:00 p. m.</li>
+        <li>Domingos y festivos: cerrado.</li>
+        <li>Servicio de fotocopias e impresiones.</li>
+        <li>Forrado de cuadernos mientras esperas.</li>
+        <li>Pedidos por WhatsApp o desde esta página.</li>
+      </ul>
+    </section>
+
+    <!-- clientes -->
+    <section id="opiniones" class="opiniones">
+      <h2>Lo que dicen nuestros clientes</h2>
+
+      <blockquote class="opinion">
+        <p>Compré toda la lista de útiles de mi hija en un solo lugar y <em>me atendieron muy rápido</em>.</p>
+        <cite>María Fernanda Gómez, madre de familia</cite>
+      </blockquote>
+
+      <blockquote class="opinion">
+        <p>Siempre encuentro cartulina de colores cuando tengo exposición. Los precios son justos.</p>
+        <cite>Carlos Andrés Rojas, estudiante universitario</cite>
+      </blockquote>
+
+      <blockquote class="opinion">
+        <p>Hago mis pedidos desde la página y los recojo sin hacer fila. Muy práctico.</p>
+        <cite>Luz Marina Pérez, profesora de primaria</cite>
+      </blockquote>
+    </section>
+
+    <!-- mapa -->
+    <section id="como-llegar" class="llegar">
+      <h2>Cómo llegar</h2>
+      <p>
+        Estamos en la <strong>Carrera 27 # 45-18, Bucaramanga, Santander</strong>
+        (dirección inventada para este proyecto).
+      </p>
+      <!-- Mapa: luego puedes cambiar el src por el de tu ubicación (Google Maps > Compartir > Insertar un mapa) -->
+      <iframe class="llegar__mapa"
+              src="https://www.google.com/maps?q=Bucaramanga,Santander,Colombia&output=embed"
+              title="Mapa de ubicación de la Papelería Centauros en Bucaramanga"
+              width="600" height="350"
+              loading="lazy"></iframe>
+      <p>
+        <a href="https://maps.app.goo.gl/FREnMkLqXUimE5c26" target="_blank" rel="noopener">Abrir el mapa en Google Maps (otra pestaña)</a>
+      </p>
+    </section>
+
+  </main>
+
+  <!-- finalmenteeee -->
+  <footer class="pie">
+    <p>&copy; 2026 Papelería Centauros. Bucaramanga, Santander.</p>
+    <p>Teléfono: 300 000 0000. </p>
+  </footer>
+
+</body>
+</html>

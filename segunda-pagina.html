@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Precios y pedidos | Papelería Centauros</title>
+  <meta name="description" content="Consulta la tabla de precios de la Papelería Centauros y haz tu pedido de útiles escolares para recogerlo en la tienda.">
+  <!-- Hoja de estilos (se llenará en la Etapa 3) -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ENCABEZADO Y MENÚ  -->
+  <header class="encabezado">
+    <p class="encabezado__logo">Papelería Centauros</p>
+    <nav class="menu">
+      <ul class="menu__lista">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="index.html#productos">Productos</a></li>
+        <li><a href="index.html#como-llegar">Cómo llegar</a></li>
+        <li><a href="segunda-pagina.html">Precios y pedidos</a></li>
+        <li><a href="segunda-pagina.html#formulario">Hacer un pedido</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <main>
+
+    <h1>Precios y pedidos</h1>
+
+    <!-- PASOS PARA PEDIR (lista ol) -->
+    <section id="como-pedir" class="pasos">
+      <h2>Cómo hacer tu pedido</h2>
+      <ol class="pasos__lista">
+        <li>Revisa los precios en la tabla de abajo.</li>
+        <li>Llena el formulario con tus datos y los productos que necesitas.</li>
+        <li>Te confirmamos el pedido por correo o por celular.</li>
+        <li>Pasa a recogerlo a la papelería en la fecha que elegiste y paga ahí.</li>
+      </ol>
+    </section>
+
+    <!-- TABLA DE PRECIOS -->
+    <section id="precios" class="precios">
+      <h2>Tabla de precios</h2>
+      <table class="tabla">
+        <caption>Precios de la Papelería Centauros (IVA incluido)</caption>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Presentación</th>
+            <th>Precio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cartulina pliego</td>
+            <td>1 pliego</td>
+            <td>$1.800</td>
+          </tr>
+          <tr>
+            <td>Cuadernos</td>
+            <td>100 hojas</td>
+            <td><s>$6.500</s> <strong>$5.500</strong></td>
+          </tr>
+          <tr>
+            <td>Lapiceros</td>
+            <td>1 unidad</td>
+            <td>$1.200</td>
+          </tr>
+          <tr>
+            <td>Lápices</td>
+            <td>1 unidad</td>
+            <td>$900</td>
+          </tr>
+          <!-- Fila con colspan 1 celda x 3 columnas -->
+          <tr>
+            <th colspan="3">Combos escolares</th>
+          </tr>
+          <tr>
+            <td>Combo básico</td>
+            <td>2 cuadernos + 4 lápices</td>
+            <td>$14.000</td>
+          </tr>
+          <tr>
+            <td>Combo exposición</td>
+            <td>5 pliegos de cartulina + 2 lapiceros</td>
+            <td>$11.000</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- FORMULARIO DE PEDIDO -->
+    <section id="formulario" class="pedido">
+      <h2>Haz tu pedido</h2>
+      <!-- action y method: al enviar, la página se recarga con los datos en la dirección (método get) -->
+      <form class="formulario" action="segunda-pagina.html" method="get">
+
+        <p>
+          <label for="nombre">Nombre completo</label><br>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Ana María Torres" required>
+        </p>
+
+        <p>
+          <label for="correo">Correo electrónico</label><br>
+          <input type="email" id="correo" name="correo" placeholder="nombre@correo.com" required>
+        </p>
+
+        <p>
+          <label for="celular">Número de celular</label><br>
+          <input type="tel" id="celular" name="celular" placeholder="300 000 0000">
+        </p>
+
+        <p>
+          <label for="producto">Producto principal</label><br>
+          <select id="producto" name="producto">
+            <option value="cartulina">Cartulina pliego</option>
+            <option value="cuadernos">Cuadernos</option>
+            <option value="lapiceros">Lapiceros</option>
+            <option value="lapices">Lápices</option>
+            <option value="combo">Combo escolar</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="cantidad">Cantidad</label><br>
+          <input type="number" id="cantidad" name="cantidad" min="1" max="100" value="1">
+        </p>
+
+        <p>
+          <label for="fecha">Fecha para recoger</label><br>
+          <input type="date" id="fecha" name="fecha">
+        </p>
+
+        <p>
+          <label for="comentarios">Comentarios</label><br>
+          <textarea id="comentarios" name="comentarios" rows="4" cols="40" placeholder="Ej: la cartulina de color azul"></textarea>
+        </p>
+
+        <p>
+          <button type="submit">Enviar pedido</button>
+        </p>
+
+      </form>
+    </section>
+
+  </main>
+
+  <!-- FINNNNN -->
+  <footer class="pie">
+    <p>&copy; 2026 Papelería Centauros. Bucaramanga, Santander.</p>
+    <p>Teléfono: 300 000 0000.</p>
+  </footer>
+
+</body>
+</html>
